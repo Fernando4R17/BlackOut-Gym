@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Staatliches&display=swap');
+
+h2{
+    font-size: 70px;
+    color: #FEFCFB;
+    margin-bottom: 15px;
+}
+.btn{
+    background-color: #B7975B;
+    font-size: 21px;
+    color: #FEFCFB;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    font-family: 'Bebas Neue', cursive;
+    background-color: #09080D;
+}
+p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.header-image{
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)),
+        url(img/inicio2.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+/* .header-txt{
+    width: 10px;
+}  */
+.header-txt h1{
+    font-size: 120px;
+    line-height: 110px;
+    color: #fefcfb;
+    margin-bottom: 15px;
+}
+.header-txt p, span{
+    font-size: 20px;
+    color: #E0E0E0;
+    margin-bottom: 35px;
+}
+.btn-1{
+    display: inline-block;
+    padding: 11px 45px;
+    background-color: #B7975B;
+    color: #FEFCFB;
+    border-radius: 25px;
+    font-size: 20px;
+    text-decoration: none;
+}
+.btn-1:hover{
+    background-color: #a07f42;
+    color: #bfa87d;
+}
+/* Info1 */
+.direction{
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+    align-items: center;
+}
+.direction p{
+    color: #FEFCFB;
+    font-size: 20px;
+}
+.direction span{
+    color: #FEFCFB;
+    font-size: 30px;
+}
+/* ABOUT */
+.about{
+    padding: 50px 0;
+    display: flex;
+}
+.about-txt{
+    width: 50%;
+}
+.about-img{
+    width: 50%;
+} 
+.about-img img{
+    width: 600px;
+}
+.about-txt p{
+    font-size: 20px;
+    color: #E0E0E0;
+    margin-bottom: 30px;
+}
+.information{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+}
+.information-1{
+    display: flex;
+    align-items: center;
+}
+.information-1 h3{
+    font-size: 90px;
+    color: #FEFCFB;
+}
+.information-1 p{
+    font-size: 30px;
+    color: #E0E0E0;
+    margin-left: 15px;
+}
+.entrenadores{
+    display: flex;
+    justify-content: space-between;
+}
+.entrenadores-1{
+    background-image: linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)),
+        url(img/entrenador1.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 500px;
+        width: 90%;
+        padding: 25px;
+}
+.entrenadores-2{
+    background-image: linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)),
+        url(img/entrenador2.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 500px;
+        width: 90%;
+        padding: 25px;
+}
+.entrenadores-3{
+    background-image: linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)),
+        url(img/entrenadora3.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 500px;
+        width: 90%;
+        padding: 25px;
+}
+.entrenadores-4{
+    background-image: linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)),
+        url(img/fisio.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 500px;
+        width: 90%;
+        padding: 25px;
+}
+.entrenadores-5{
+    background-image: linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)),
+        url(img/nutri.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 500px;
+        width: 90%;
+        padding: 25px;
+}
+.txt{
+    position: relative;
+}
+.txt span{
+    color: #B7975B;
+    font-size: 35px;
+}
+.txt h3{
+    color: #FEFCFB;
+    font-size: 35px;
+}
+/* @media(max-widht:991px){
+    .menu{
+        padding: 30px;
+    }
+}  */
+
+/* NOSOTROS */
+.header-Nimage{
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)),
+        url(img/nosotros.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+.header-Ntxt h1{
+    font-size: 110px;
+    color: #E0E0E0;
+
+}
+.header-Ntxt span{
+    font-size: 40px;
+    color: #E0E0E0;
+
+}
+.header-Ntxt p{
+    font-size: 20px;
+    color: #E0E0E0;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.info-header{
+    padding-top: 5%;
+    color: #E0E0E0;
+}
+.card{
+    background-color: whitesmoke;
+}
+
