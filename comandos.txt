@@ -1,0 +1,15 @@
+git config --global user.name "Fernando"
+git config --global user.email "luisfar30@gmail.com"
+git init
+git remote add origin https://github.com/Fernando4R17/Gimnasio.git
+git clone https://github.com/Fernando4R17/Gimnasio.git
+git fetch
+git switch Fernando
+
+
+Para Descargar los Paquetes en consola
+
+npm i ejs
+npm install -g nodemon
+npm i express
+npm i mongoose
