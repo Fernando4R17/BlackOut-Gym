@@ -120,65 +120,13 @@ p{
     display: flex;
     justify-content: space-between;
 }
-.entrenadores-1{
-    background-image: linear-gradient(
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)),
-        url(/img/entrenador1.jpg);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 500px;
-        width: 90%;
-        padding: 25px;
-}
-.entrenadores-2{
-    background-image: linear-gradient(
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)),
-        url(/img/entrenador2.jpg);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 500px;
-        width: 90%;
-        padding: 25px;
-}
-.entrenadores-3{
-    background-image: linear-gradient(
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)),
-        url(/img/entrenadora3.jpg);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 500px;
-        width: 90%;
-        padding: 25px;
-}
-.entrenadores-4{
-    background-image: linear-gradient(
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)),
-        url(/img/fisio.jpg);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 500px;
-        width: 90%;
-        padding: 25px;
-}
-.entrenadores-5{
-    background-image: linear-gradient(
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)),
-        url(/img/nutri.jpg);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 500px;
-        width: 90%;
-        padding: 25px;
+.entrenador{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    width: 90%;
+    padding: 25px;
 }
 .txt{
     position: relative;
@@ -191,11 +139,6 @@ p{
     color: #FEFCFB;
     font-size: 35px;
 }
-/* @media(max-widht:991px){
-    .menu{
-        padding: 30px;
-    }
-}  */
 
 /* NOSOTROS */
 .header-Nimage{
