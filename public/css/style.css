@@ -228,4 +228,18 @@ p{
 .card{
     background-color: whitesmoke;
 }
+.img-card{
+    width: 70%;
+    margin-left: 15%;
+    /* margin-right: 30%; */
+}
+.card-info{
+    font-size: 12px;
+}
+.card-txt{
+    font-size: 12px;
+}
+.card-header{
+    color: #a07f42;
+}
 
