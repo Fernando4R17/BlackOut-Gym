@@ -37,9 +37,6 @@ p{
     display: flex;
     align-items: center;
 }
-/* .header-txt{
-    width: 10px;
-}  */
 .header-txt h1{
     font-size: 120px;
     line-height: 110px;
