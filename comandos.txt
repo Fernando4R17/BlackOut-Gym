@@ -1,0 +1,36 @@
+git config --global user.name "Fernando"
+git config --global user.email "luisfar30@gmail.com"
+git init
+git remote add origin https://github.com/Fernando4R17/Gimnasio.git
+git clone https://github.com/Fernando4R17/Gimnasio.git
+git fetch
+git switch Fernando
+
+----------------------------------------
+Para Descargar los Paquetes en consola |
+----------------------------------------
+npm i ejs
+npm install -g nodemon
+npm i express
+npm i mongoose
+
+-----------------------------------------------------
+Para hacer merge y que los cambios se vean reflejados
+-----------------------------------------------------
+Te posicionas en la rama en la que quieres los cambios
+git switch (nombre de la rama)
+git merge (y vas a poner el nombre de la rama de la cual quieres los cambios)
+
+Ahi despues te deben de aparecer en el documento la serie de cambios que hay en entre las dos ramas,
+deberás seleccionar que cambios quieres que entren y que otros cambios quieres que se queden.
+
+
+============================
+Para Clonar Ramas solamente
+============================
+
+Te posicionas en la rama en la que quieres los cambios
+git switch (nombre de la rama)
+git clone -b (nombre de la rama que quieres clonar) https://github.com/Fernando4R17/Gimnasio.git
+
+================================================================================================
