@@ -33,6 +33,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  res.locals.isLoggedAdminIn = req.session.adminId ? true : false;
+  next();
+});
+
 
 
 // ----------------------------------------------------
@@ -62,6 +67,7 @@ app.use(express.static(__dirname + "/public"));
 // Rutas 
 app.use('/', require('./router/rutas'));
 app.use('/sesion', require('./router/Clientes'));
+app.use('/admin', require('./router/Admin'));
 
 
 

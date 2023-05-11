@@ -7,7 +7,7 @@
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="col-md-8 col-lg-8">
-                                <form action="/sesion/resgistrarse" method="POST">
+                                <form action="/admin/addWorker" method="POST">
                                     <div class="row g-3 mt-4">
                                         <div class="col-12 mt-2">
                                             <label for="Nombre" class="form-label"><h4>Nombre</h4></label>
@@ -17,7 +17,6 @@
                                             </div>
                                         </div>
                 
-                
                                         <div class="col-sm-6 mt-2">
                                             <label for="ApellidoP" class="form-label"><h4>Apellido Paterno</h4></label>
                                             <input type="text" class="form-control" name="app" required>
@@ -25,24 +24,12 @@
                                                 Apellido Paterno es requerido.
                                             </div>
                                         </div>
-                
+
                                         <div class="col-sm-6 mt-2">
-                                            <label for="APM" class="form-label"><h4>Apellido Materno</h4></label>
-                                            <input type="text" class="form-control" name="apm">
-                                            <label class="mt-2"><span class="text-muted">(Opcional)</span></label>
-                                        </div>
-                
-                                        <div class="col-sm-6">
-                                            <label for="Telefono" class="form-label"><h4>Telefono</h4></label>
-                                            <input type="text" class="form-control" name="telefono" required>
-                                        </div>
-                
-                                        <div class="col-sm-6">
-                                            <label for="Sexo" class="form-label"><h4>Sexo</h4></label><br>
-                                            <select class="form-control" name="sexo">
-                                            <option value="Masculino">Masculino</option>
-                                            <option value="Femenino">Femenino</option>
-                                            <option value="PrefieroNE">Prefiero no espeficicar</option>
+                                            <label for="tipoUsuario" class="form-label"><h4>Tipo de usuario</h4></label><br>
+                                            <select class="form-control" name="userTipo">
+                                            <option value="1">Administrador</option>
+                                            <option value="2">Puede Editar</option>
                                             </select>
                                         </div>
                 
@@ -62,7 +49,9 @@
                                             Ingrese una contraseña.
                                             </div>
                                         </div>   
+                                        
                                     </div>
+
                                     <br>
                                     <div class=" mb-5">
                                         <center>

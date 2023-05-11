@@ -1,0 +1,40 @@
+<section>
+    <div class="mt-4">
+        <div class="row m-4">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8 col-lg-8">
+                                <div class="text-center"><h1>Administración</h1></div>
+                                <form action="/admin/login" method="POST">
+                                <div class="row g-3 mt-4">
+                                    <div class="col-12 mt-2">
+                                        <label for="Email" class="form-label"><h4>Email</h4></label>
+                                        <input type="email" class="form-control" name="email" placeholder="correo@ejemplo.com" required>
+                                        <div class="invalid-feedback">
+                                            Ingrese un correo electronico valido.
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 mt-2">
+                                        <label for="Password" class="form-label"><h4>Contraseña</h4></label>
+                                        <input type="password" class="form-control" name="pswd" placeholder="Contraseña" required>
+                                        <div class="invalid-feedback">
+                                            Ingrese una contraseña.
+                                        </div>
+                                    </div>  
+                                    <center><button class="btn btn-outline-secondary btn-lg m-2" type="submit">Aceptar</button></center>
+                                </div>
+
+                                </form>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

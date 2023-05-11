@@ -11,9 +11,31 @@
         </ul>
         <a class="btn btn-outline-secondary btn-lg m-2" href="/" role="button">Nosotros</a> 
         <a class="btn btn-outline-secondary btn-lg m-2" href="/" role="button">Sucursales</a> 
-        <a class="btn btn-outline-secondary  btn-lg m-2" href="/" role="button">Membresias</a>
+        <a class="btn btn-outline-secondary  btn-lg m-2" href="/membresias" role="button">Membresias</a>
         <% if(isLoggedIn){ %>
-          <a class="btn btn-outline-secondary  btn-lg m-2" href="/sesion/cerrar-sesion" role="button">Cerrar sesión</a>
+          <!-- <a class="btn btn-outline-secondary  btn-lg m-2" href="/sesion/cerrar-sesion" role="button">Cerrar sesión</a> -->
+          <div class="dropdown">
+            <button class="btn btn-outline-secondary  btn-lg m-2 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Configuracion
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/">Pagos y facturaciones</a></li>
+              <li><a class="dropdown-item" href="/">Información personal</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/sesion/cerrar-sesion">Cerrar Sesion</a></li>
+            </ul>
+          </div>
+        <% }else if(isLoggedAdminIn){ %>
+          <div class="dropdown">
+            <button class="btn btn-outline-secondary  btn-lg m-2 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Configuracion
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/sesion/cerrar-sesion">Cerrar Sesion</a></li>
+            </ul>
+          </div>
         <% } else { %>
           <a class="btn btn-outline-secondary  btn-lg m-2" href="/inicio-sesion" role="button">Iniciar Sesión</a>
         <% } %>

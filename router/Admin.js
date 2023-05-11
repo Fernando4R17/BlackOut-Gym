@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
 
-const Cliente = require('../models/Cliente');
+const Admin = require('../models/admin');
 
 router.get('/', async (req,res) => {
 
     try {
         
-        const arrayClientesDB = await Cliente.find()
+        const arrayAdminDB = await Admin.find()
 
-        res.render("clientes", {
-            arrayClientes : arrayClientesDB
+        res.render("admin", {
+            arrayAdmin : arrayAdminDB
         })
 
     } catch (error) {
@@ -24,14 +24,14 @@ router.get('/crear', (req, res) => {
     res.render('crear')
 });
 
-router.post('/resgistrarse', async(req, res) => {
+router.post('/addWorker', async(req, res) => {
     const body = req.body;
 
     try {
 
-        await Cliente.create(body);
+        await Admin.create(body);
 
-        res.redirect('/inicio-sesion');
+        res.redirect('/');
     } catch (error) {
         console.log(error);
     }
@@ -41,16 +41,16 @@ router.post('/login', async(req, res) => {
     const {email, pswd} = req.body;
 
     try {
-        const user = await Cliente.findOne({email});
-        if (!user) {
+        const admin = await Admin.findOne({email});
+        if (!admin) {
           console.log('Correo no registrado');
         } else {
-          user.isCorrectPassword(pswd, (err, result) => {
+          admin.isCorrectPassword(pswd, (err, result) => {
             if (err) {
               console.log('Error al autenticar');
             } else if (result) {
               console.log('Contraseña correcta');
-              req.session.userId = user._id;
+              req.session.adminId = admin._id;
               res.redirect('/');
             } else {
               console.log('Contraseña incorrecta');

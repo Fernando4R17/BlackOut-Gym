@@ -1,7 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Staatliches&display=swap');
-
+.bronze{
+    color: #a07f42;
+}
+.dashboard-item{
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+}
 h2{
     font-size: 70px;
+    color: #FEFCFB;
+    margin-bottom: 15px;
+}
+.th3{
+    font-size: 30px;
     color: #FEFCFB;
     margin-bottom: 15px;
 }
@@ -45,6 +57,15 @@ p{
     line-height: 110px;
     color: #fefcfb;
     margin-bottom: 15px;
+}
+.precio{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.875rem;
+    color: #fefcfb;
+}
+.card-member{
+    font-size: 1.3rem;
+    color: #fefcfb;
 }
 .header-txt p, span{
     font-size: 20px;

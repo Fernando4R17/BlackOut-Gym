@@ -1,0 +1,173 @@
+<div class="container">
+    <div class="card mt-4" style="min-height: 45rem;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 col-lg-8">
+                    <center><button class="btn btn-outline-secondary " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Opciones</button></center>
+                    
+                </div> 
+            </div>
+
+            <!-- Modificador de pagina web -->
+            <div class="row-fluid mt-5">
+                <div class="card" id="webCard" hidden>
+                    <div class="card-header">
+                      Elementos de pagina web
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Special title treatment</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modificador de Administracion -->
+            <div class="row-fluid mt-5">
+                <div class="card" id="adminCard" hidden>
+                    <div class="card-header">
+                      Administradores
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Special title treatment</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modificador de Trabajadores -->
+            <div class="row-fluid mt-5">
+              <div class="card" id="workersCard" hidden>
+                  <div class="card-header">
+                    Trabajadores
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Modificador de Clientes -->
+            <div class="row-fluid mt-5">
+              <div class="card" id="clientsCard" hidden>
+                  <div class="card-header">
+                    Clientes
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Modificador de membresias -->
+            <div class="row-fluid mt-5">
+              <div class="card" id="membershipsCard" hidden>
+                  <div class="card-header">
+                    Membership
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+              </div>
+            </div>
+
+        </div>
+    </div>
+    
+</div>
+
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Opciones de administrador</h3>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul>
+        <li><a href="" class="dashboard-item" id="web"><h4>Modificar Elementos de pagina</h4></a></li>
+        <li><a href="" class="dashboard-item" id="admin"><h4>Administradores</h4></a></li>
+        <li><a href="" class="dashboard-item" id="workers"><h4>Trabajadores</h4></a></li>
+        <li><a href="" class="dashboard-item" id="clients"><h4>Clientes</h4></a></li>
+        <li><a href="" class="dashboard-item" id="memberships"><h4>Membresias</h4></a></li>
+
+    </ul>
+    
+  </div>
+</div>
+<script>
+    const ConfigWeb = document.querySelector('#web');
+    const webCard = document.querySelector('#webCard');
+
+    const ConfigAdmin = document.querySelector('#admin');
+    const adminCard = document.querySelector('#adminCard');
+
+    const ConfigWorkers = document.querySelector('#workers');
+    const workersCard = document.querySelector('#workersCard');
+
+    const ConfigClients = document.querySelector('#clients');
+    const clientsCard = document.querySelector('#clientsCard');
+
+    const ConfigMemberships = document.querySelector('#memberships');
+    const membershipsCard = document.querySelector('#membershipsCard');
+
+    let activo = null;
+
+    // Eventos
+    ConfigWeb.addEventListener('click', (e) => {
+      e.preventDefault();
+      activarElemento(webCard, ConfigWeb);
+    });
+
+    ConfigAdmin.addEventListener('click', (e) => {
+      e.preventDefault();
+      activarElemento(adminCard, ConfigAdmin);
+    });
+
+    ConfigWorkers.addEventListener('click', (e) => {
+      e.preventDefault();
+      activarElemento(workersCard, ConfigWorkers);
+    });
+
+    ConfigClients.addEventListener('click', (e) => {
+      e.preventDefault();
+      activarElemento(clientsCard, ConfigClients);
+    });
+
+    ConfigMemberships.addEventListener('click', (e) => {
+      e.preventDefault();
+      activarElemento(membershipsCard, ConfigMemberships);
+    });
+
+    function activarElemento(elemento, texto) {
+      
+      if (activo && activo !== elemento) {
+        activo.setAttribute("hidden", true); 
+        ConfigWeb.classList.remove('text-warning');
+        ConfigAdmin.classList.remove('text-warning');
+        ConfigWorkers.classList.remove('text-warning');
+        ConfigClients.classList.remove('text-warning');
+        ConfigMemberships.classList.remove('text-warning');
+      }
+    
+      const estaActivo = !elemento.hasAttribute("hidden"); 
+      elemento.toggleAttribute("hidden", estaActivo); 
+    
+      activo = estaActivo ? null : elemento; 
+      if (!elemento.hasAttribute("hidden")) {
+        texto.classList.add('text-warning'); 
+      } else {
+        texto.classList.remove('text-warning'); 
+      }
+    }
+
+
+    
+</script>
