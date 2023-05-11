@@ -1,4 +1,4 @@
-<div class="header-image">
+<!-- <div class="header-image">
     <div class="header-txt ">
         <h1>Blackout Gym</h1>
         <span>Fitness for anyone</span>
@@ -12,4 +12,24 @@
       </div>
           <a href="#" class="btn-1">Registrarse</a>
     </div>
+  </div> -->
+
+  <div class="header-image" data-apartado="<%= apartado %>" >
+    <div class="header-txt <%= letras %>" data-titulo="<%= titulo %>" data-lema="<%= lema %>" data-info="<%= informacion %>">
+      <h1><%= titulo %></h1>
+      <span><%= lema %></span>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <p><%= informacion %></p>
+      </div>
+      <a href="#" class="btn-1">Registrarse</a>
+    </div>
   </div>
+
+<script>
+  var headerInfo = document.querySelectorAll('.header-image');
+  headerInfo.forEach(function(header) {
+    var apartado = header.dataset.apartado;
+
+    header.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(/img/${apartado}.jpg)`;
+  });
+</script>

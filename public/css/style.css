@@ -26,10 +26,10 @@ p{
     font-family: Arial, Helvetica, sans-serif;
 }
 .header-image{
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)),
-        url(/img/inicio2.png);
+        url(/img/inicio.png); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -139,10 +139,10 @@ p{
 
 /* NOSOTROS */
 .header-Nimage{
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)),
-        url(img/nosotros.jpg);
+        url(img/nosotros.jpg); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -186,5 +186,24 @@ p{
 }
 .card-header{
     color: #a07f42;
+}
+.htitulo {
+    font-size: 150px;
+    /* line-height: 300px; */
+    -webkit-text-stroke: 3px #a07f42;
+    color: transparent;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-style: oblique;
+    padding-top: 10%;
+}
+.hinfo {
+    font-size: 50px;
+}
+.hspan{
+    font-size: 30px;
+    text-align: center;
+    color: #a07f42;
+    font-style: oblique;
 }
 

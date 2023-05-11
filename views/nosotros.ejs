@@ -1,8 +1,15 @@
 <%- include("template/head", {tituloweb: 'Nosotros'}); %>
 
-<%- include("template/header"); %> 
 
-<%- include("template/team"); %> 
+<%- include("template/header", {letras: 'text-center m-4', titulo: 'Blackout Gym', lema: 'Fitness for Anyone Anytime and Anywhere', informacion: 'Entrenar debe ser un estilo de vida no un castigo', apartado: 'nosotros'}); %>
+
+<%- include("template/ourteam"); %> 
+
+<section class="card">
+    <%- include("template/team", {ocupacion: 'Entrenador', nombre: 'Luis', estudios: "Licenciado en Actividades", ocupacionInfo: 'entrenador1Info', telefono: "Numero de telefono: 6697816253", email: "Correo Electrónico: luis@gmail.com", sucursal: "Sucursal: Primera Sucursal"}); %>
+
+</section>
+ 
 
 <%- include("template/footer"); %> 
 
