@@ -25,29 +25,66 @@
 
             <!-- Modificador de Administracion -->
             <div class="row-fluid mt-5">
-                <div class="card" id="adminCard" hidden>
-                    <div class="card-header">
-                      Administradores
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Special title treatment</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modificador de Trabajadores -->
-            <div class="row-fluid mt-5">
-              <div class="card" id="workersCard" hidden>
+              <div class="card" id="adminCard" hidden>
                   <div class="card-header">
-                    Trabajadores
+                    Administración
                   </div>
                   <div class="card-body">
                     <h5 class="card-title">Special title treatment</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
+              </div>
+            </div>
+
+            <!-- Modificador de Trabajadores -->
+            <div class="row-fluid mt-5">
+              <div class="card" id="workersCard" hidden>
+                <div class="card-header">
+                  Administradores
+                </div>
+                <div class="card-body">
+                  <div class="d-grid my-4">
+                    <a class="btn btn-secondary" id="crearTrabajador"> 
+                        Añadir a nuevo trabajador
+                    </a>
+                  </div>
+                  <div id="addWorker" hidden>
+                    <%- include("addWorker"); %>
+                  </div>
+                  <table class="table" id="workersTable">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido Paterno</th>
+                        <th scope="col">Apellido Materno</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Sucursal</th>
+                        <th scope="col">Ocupacion</th>
+                        <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <% if (arrayTrabajadores.length > 0) { %>
+                        <% arrayTrabajadores.forEach(trabajador => { %>
+                        <tr>
+                          <th scope="row"><%= trabajador.id %></th>
+                          <td><%= trabajador.nombre %></td>
+                          <td><%= trabajador.app %></td>
+                          <td><%= trabajador.apm %></td>
+                          <td><%= trabajador.email %></td>
+                          <td><%= trabajador.sucursal %></td>
+                          <td><%= trabajador.ocupacion %></td>
+                          <td>
+                            <a href="/dashboard/trabajador/<%= trabajador.id %>" id="btnDetalle" class="btn btn-warning btn-sm">Editar</a>
+                          </td>
+                        </tr>
+                      <% }) %>
+                      <%  }   %>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
 
@@ -58,9 +95,38 @@
                     Clientes
                   </div>
                   <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <table class="table" id="clientsTable">
+                      <thead>
+                          <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Apellido Paterno</th>
+                          <th scope="col">Apellido Materno</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Sexo</th>
+                          <th scope="col">Telefono</th>
+                          <th scope="col">Acción</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <% if (arrayClientes.length > 0) { %>
+                          <% arrayClientes.forEach(cliente => { %>
+                          <tr>
+                            <th scope="row"><%= cliente.id %></th>
+                            <td><%= cliente.nombre %></td>
+                            <td><%= cliente.app %></td>
+                            <td><%= cliente.apm %></td>
+                            <td><%= cliente.email %></td>
+                            <td><%= cliente.sexo %></td>
+                            <td><%= cliente.telefono %></td>
+                            <td>
+                              <a href="/dashboard/cliente/<%= cliente.id %>" class="btn btn-warning btn-sm">Editar</a>
+                            </td>
+                          </tr>
+                        <% }) %>
+                        <%  }   %>
+                      </tbody>
+                    </table>
                   </div>
               </div>
             </div>
@@ -69,12 +135,54 @@
             <div class="row-fluid mt-5">
               <div class="card" id="membershipsCard" hidden>
                   <div class="card-header">
-                    Membership
+                    Membresias
                   </div>
                   <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="d-grid my-4">
+                      <a class="btn btn-secondary" id="crearMembresia"> 
+                          Crear Membresia
+                      </a>
+                    </div>
+                    <div id="addMembership" hidden>
+                      <%- include("addMembership"); %>
+                    </div>
+                    <div class="card-body">
+                      <table class="table" id="membershipsTable">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Duracion</th>
+                            <th scope="col">Inscripcion</th>
+                            <th scope="col">Mantenimiento</th>
+                            <th scope="col">24hrs</th>
+                            <th scope="col">Clases Ilimitadas</th>
+                            <th scope="col">invitados</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <% if (arrayMembresias.length > 0) { %>
+                            <% arrayMembresias.forEach(membresia => { %>
+                            <tr>
+                              <th scope="row"><%= membresia.id %></th>
+                              <td><%= membresia.nombre %></td>
+                              <td><%= membresia.precio %></td>
+                              <td><%= membresia.duracion %></td>
+                              <td><%= membresia.inscripcion %></td>
+                              <td><%= membresia.mantenimiento %></td>
+                              <td><%= membresia.todoeldia %></td>
+                              <td><%= membresia.clases %></td>
+                              <td><%= membresia.invitados %></td>
+                              <td>
+                                <a href="/dashboard/membresia/<%= membresia.id %>" class="btn btn-warning btn-sm">Editar</a>
+                              </td>
+                            </tr>
+                          <% }) %>
+                          <%  }   %>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
               </div>
             </div>
@@ -119,6 +227,47 @@
     const membershipsCard = document.querySelector('#membershipsCard');
 
     let activo = null;
+
+    // Trabajadores
+
+    const crearTBtn = document.querySelector('#crearTrabajador');
+    const crearTEjs = document.querySelector('#addWorker');
+    const regresarT = document.querySelector('#workerRegresar');
+    const tablaT = document.querySelector('#workersTable');
+
+    crearTBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      crearTEjs.hidden = false;
+      crearTBtn.hidden = true;
+      tablaT.hidden = true;
+    });
+
+    regresarT.addEventListener('click', (e) => {
+      e.preventDefault();
+      crearTEjs.hidden = true;
+      crearTBtn.hidden = false;
+      tablaT.hidden = false;
+    });
+
+    // Membresias
+    const crearMBtn = document.querySelector('#crearMembresia');
+    const crearMEjs = document.querySelector('#addMembership');
+    const regresarM = document.querySelector('#membresiaRegresar');
+    const tablaM = document.querySelector('#membershipsTable');
+
+    crearMBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      crearMEjs.hidden = false;
+      crearMBtn.hidden = true;
+      tablaM.hidden = true;
+    });
+
+    regresarM.addEventListener('click', (e) => {
+      e.preventDefault();
+      crearMEjs.hidden = true;
+      crearMBtn.hidden = false;
+      tablaM.hidden = false;
+    });
 
     // Eventos
     ConfigWeb.addEventListener('click', (e) => {

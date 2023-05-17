@@ -1,5 +1,7 @@
 <%- include("template/head", {tituloweb: 'Membresias'}); %>
 
-<%- include("template/members"); %>
+<%- include("template/title", {titulo: 'Membresias', informacion: 'Elige tu tipo de membresia', texto: '¡INSCRÍBETE!'}); %>
+
+<%- include("template/members", {arrayMembresias: membresias}); %>
 
 <%- include("template/footer"); %>

@@ -1,15 +1,27 @@
-<div class="header-image">
-    <div class="header-txt ">
-        <h1>Blackout Gym</h1>
-        <span>Fitness for anyone</span>
-        <span>Anytime and anywhere</span>
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Explicabo quidem ipsum iure magnam tempore, qui maxime repellat nam saepe amet necessitatibus molestias 
-            quis perspiciatis autem labore beatae iste magni ratione.
-        </p>
+<div class="header-image <%= letras %>" data-apartado="<%= apartado %>" >
+  <div class="header-txt m-4">
+    <span><%= equipo %></span>
+    <h1><%= titulo %></h1>
+    <span><%= lema %></span>
+    <% if (apartado === "nosotros") { %>
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+          <p><%= informacion %></p>
+        </div>
+        <div class="col-3"></div>
       </div>
-          <a href="#" class="btn-1">Registrarse</a>
-    </div>
+    <% } else{ %>
+      <p><%= informacion %></p>
+      <a href="#" class="btn-1">Registrarse</a>
+    <% } %>
   </div>
+</div>
+<script>
+  var headerInfo = document.querySelectorAll('.header-image');
+  headerInfo.forEach(function(header) {
+    var apartado = header.dataset.apartado;
+
+    header.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(/img/${apartado}.jpg)`;
+  });
+</script>

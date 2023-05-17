@@ -1,9 +1,5 @@
 <div class="container pt-4">
     <div class="row">
-        <div class="text-center">
-            <h2>Escoge tu membresia</h2>
-            <p class="precio text-warning">¡Inscribete!</p>
-        </div>
         <hr class="text-white">
     </div>
     <div class="row m-4">
@@ -11,35 +7,69 @@
         <form>
             <select class="form-select" aria-label="Default select example">
                 <option selected>Selecciona una sucursal</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="1">Flores Magon</option>
             </select>
         </form>
     </div>
     <div class="row">
-        <div class="card bg-transparent border-warning text-white" style="width: 25rem; ">
-            <div class="card-body card-member">
-                <h1 class="text-center text-warning">Individual</h1>
-                <p class="text-center precio">$999</p>
-                <br>
-                <ul>
-                    <li><i class="fa-regular fa-circle-check fa-lg m-2" style="color: #ffffff;"></i>Inscripción</li>
-                    <li><i class="fa-regular fa-circle-check fa-lg m-2" style="color: #ffffff;"></i>Cuota de mantenimiento</li>
-                </ul>
-                <hr>
-                <ul>
-                    <li><i class="fa-regular fa-circle-xmark fa-lg m-2" style="color: #ffffff;"></i>MultiSucursal</li>
-                    <li><i class="fa-regular fa-circle-check fa-lg m-2" style="color: #ffffff;"></i>Acceso 24hrs</li>
-                    <li><i class="fa-regular fa-circle-check fa-lg m-2" style="color: #ffffff;"></i>Clases</li>
-                    <li><i class="fa-regular fa-circle-xmark fa-lg m-2" style="color: #ffffff;"></i>Invitados</li>
-                </ul>
-                <br>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    <a class="btn btn-outline-secondary btn-md " href="/" role="button">¡Elegir Plan!</a>
+        <% arrayMembresias.forEach(membresia => { %>
+            <div class="card bg-transparent border-warning text-white m-3" style="width: 25rem; ">
+                <div class="card-body card-member">
+                    <h1 class="text-center text-warning"><%= membresia.nombre %></h1>
+                    <p class="text-center precio">$<%= membresia.precio %></p>
+                    <br>
+                    <ul>
+                        <li><i id="inscripcion" data-valor="<%= membresia.inscripcion %>" style="color: #ffffff;"></i>Inscripción</li>
+                        <li><i id="mantenimiento" data-valor="<%= membresia.mantenimiento %>" style="color: #ffffff;"></i>Cuota de mantenimiento</li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li><i id="todoeldia" data-valor="<%= membresia.todoeldia %>" style="color: #ffffff;"></i>Acceso 24hrs</li>
+                        <li><i id="clases" data-valor="<%= membresia.clases %>" style="color: #ffffff;"></i>Clases</li>
+                        <li><i id="invitados" data-valor="<%= membresia.invitados %>" style="color: #ffffff;"></i>Invitados</li>
+                    </ul>
+                    <br>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <a class="btn btn-outline-secondary btn-md " href="/pago/<%= membresia._id %>" role="button">¡Suscribirse!</a>
+                    </div>
+                    
                 </div>
-                
             </div>
-        </div>
+        <% }) %>
     </div>
 </div>
+
+<script>
+    var inscripcion = document.querySelectorAll('#inscripcion');
+    var mantenimiento = document.querySelectorAll('#mantenimiento');
+    var todoeldia = document.querySelectorAll('#todoeldia');
+    var clases = document.querySelectorAll('#clases');
+    var invitados = document.querySelectorAll('#invitados');
+    
+    inscripcion.forEach(function(inscripcion){
+        validar(inscripcion);
+    })
+    mantenimiento.forEach(function(mantenimiento){
+        validar(mantenimiento);
+    })
+    todoeldia.forEach(function(todoeldia){
+        validar(todoeldia);
+    })
+    clases.forEach(function(clases){
+        validar(clases);
+    })
+    invitados.forEach(function(invitados){
+        validar(invitados);
+    })
+
+    function validar(elemento) {
+        var validacion = elemento.dataset.valor
+
+        if(validacion === 'true'){
+            elemento.classList.add('fa-regular', 'fa-circle-check', 'fa-lg', 'm-2');
+        } else{
+            elemento.classList.add('fa-regular', 'fa-circle-xmark', 'fa-lg', 'm-2');
+        }
+    }
+
+</script>

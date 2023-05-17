@@ -28,8 +28,12 @@ router.post('/resgistrarse', async(req, res) => {
     const body = req.body;
 
     try {
-
-        await Cliente.create(body);
+        const clienteDB = await Cliente.findOne({email: body.email});
+        if (clienteDB === null) {
+          await Cliente.create(body);
+        } else{
+          console.log('Correo Registrado');
+        }
 
         res.redirect('/inicio-sesion');
     } catch (error) {
@@ -51,7 +55,7 @@ router.post('/login', async(req, res) => {
             } else if (result) {
               console.log('Contraseña correcta');
               req.session.userId = user._id;
-              res.redirect('/');
+              res.redirect('/user');
             } else {
               console.log('Contraseña incorrecta');
             }

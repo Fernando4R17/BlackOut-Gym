@@ -1,72 +1,72 @@
-<section>
-    <div class="mt-4">
-        <div class="row m-4">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-2"></div>
-                            <div class="col-md-8 col-lg-8">
-                                <form action="/admin/addWorker" method="POST">
-                                    <div class="row g-3 mt-4">
-                                        <div class="col-12 mt-2">
-                                            <label for="Nombre" class="form-label"><h4>Nombre</h4></label>
-                                            <input type="text" class="form-control" name="nombre" required>
-                                            <div class="invalid-feedback">
-                                                Nombre es requerido.
-                                            </div>
-                                        </div>
-                
-                                        <div class="col-sm-6 mt-2">
-                                            <label for="ApellidoP" class="form-label"><h4>Apellido Paterno</h4></label>
-                                            <input type="text" class="form-control" name="app" required>
-                                            <div class="invalid-feedback">
-                                                Apellido Paterno es requerido.
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 mt-2">
-                                            <label for="tipoUsuario" class="form-label"><h4>Tipo de usuario</h4></label><br>
-                                            <select class="form-control" name="userTipo">
-                                            <option value="1">Administrador</option>
-                                            <option value="2">Puede Editar</option>
-                                            </select>
-                                        </div>
-                
-                                        <div class="col-12 mt-2">
-                                            <label for="Email" class="form-label"><h4>Email</h4></label>
-                                            <input type="email" class="form-control" name="email" placeholder="correo@ejemplo.com" required>
-                                            <div class="invalid-feedback">
-                                            Ingrese un correo electronico valido.
-                                            </div>
-                                        </div>
-                
-                                        <div class="col-12 mt-2">
-                                            <label for="Password" class="form-label"><h4>Contraseña</h4></label>
-                                            <input type="password" class="form-control mb-1" name="pswd" placeholder="Contraseña" required>
-                                            <span id="mensaje"></span>
-                                            <div class="invalid-feedback">
-                                            Ingrese una contraseña.
-                                            </div>
-                                        </div>   
-                                        
-                                    </div>
-
-                                    <br>
-                                    <div class=" mb-5">
-                                        <center>
-                                            <span id="boton">&nbsp;</span><br>
-                                            <button class="btn btn-outline-secondary btn-lg m-2" type="submit"> 
-                                            Aceptar</button>
-                                        </center>
-                                    </div>
-                                </form>
-                            </div> 
-                        </div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 col-lg-8">
+        <form action="/dashboard" method="POST" enctype="multipart/form-data">
+            <div class="row g-3 mt-4">
+                <div class="col-12 mt-2">
+                    <label for="Nombre" class="form-label"><h4>Nombre</h4></label>
+                    <input type="text" class="form-control" name="nombre" required>
+                    <div class="invalid-feedback">
+                        Nombre es requerido.
                     </div>
                 </div>
 
+                <div class="col-sm-6 mt-2">
+                    <label for="ApellidoP" class="form-label"><h4>Apellido Paterno</h4></label>
+                    <input type="text" class="form-control" name="app" required>
+                    <div class="invalid-feedback">
+                        Apellido Paterno es requerido.
+                    </div>
+                </div>
+
+                <div class="col-sm-6 mt-2">
+                    <label for="APM" class="form-label"><h4>Apellido Materno</h4></label>
+                    <input type="text" class="form-control" name="apm">
+                    <label class="mt-2"><span class="text-muted">(Opcional)</span></label>
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="Sucursal" class="form-label"><h4>Sucursal</h4></label>
+                    <input type="text" class="form-control" name="sucursal" required>
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="Carrera" class="form-label"><h4>Carrera</h4></label>
+                    <input type="text" class="form-control" name="carrera" required>
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="ImgG" class="form-label">Imagen Inicio</label>
+                    <input class="form-control" type="file" name="imgG" required>
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="ImgC" class="form-label">Imagen Nosotros</label>
+                    <input class="form-control" type="file" name="imgC" required>
+                </div>
+
+                <div class="col-12 mt-2">
+                    <label for="Email" class="form-label"><h4>Email</h4></label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="correo@ejemplo.com" required>
+                    <div class="invalid-feedback">
+                    Ingrese un correo electronico valido.
+                    </div>
+                </div>
+
+                <div class="col-12 mt-2">
+                    <label for="Ocupacion" class="form-label"><h4>Ocupacion</h4></label>
+                    <input type="text" class="form-control mb-1" name="ocupacion" required>
+                </div>   
             </div>
-        </div>
-    </div>
-</section>
+            <br>
+            <div class=" mb-5">
+                <center>
+                    <button class="btn btn-outline-secondary btn-lg m-2" type="submit"> 
+                    Aceptar</button>
+                </center>
+                <button class="btn btn-outline-secondary btn-lg m-2" id="workerRegresar"> 
+                    <i class="fa-solid fa-arrow-left"></i></button>
+            </div>
+        </form>
+    </div> 
+</div>

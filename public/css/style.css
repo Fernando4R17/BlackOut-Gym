@@ -38,10 +38,10 @@ p{
     font-family: Arial, Helvetica, sans-serif;
 }
 .header-image{
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)),
-        url(/img/inicio2.png);
+        url(/img/inicio.png); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -49,9 +49,6 @@ p{
     display: flex;
     align-items: center;
 }
-/* .header-txt{
-    width: 10px;
-}  */
 .header-txt h1{
     font-size: 120px;
     line-height: 110px;
@@ -163,10 +160,10 @@ p{
 
 /* NOSOTROS */
 .header-Nimage{
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)),
-        url(img/nosotros.jpg);
+        url(img/nosotros.jpg); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -197,4 +194,38 @@ p{
 .card{
     background-color: whitesmoke;
 }
+.img-card{
+    width: 70%;
+    margin-left: 15%;
+    /* margin-right: 30%; */
+}
+.card-info{
+    font-size: 12px;
+}
+.card-txt{
+    font-size: 12px;
+}
+.card-header{
+    color: #a07f42;
+}
+.htitulo {
+    font-size: 150px;
+    /* line-height: 300px; */
+    -webkit-text-stroke: 3px #a07f42;
+    color: transparent;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-style: oblique;
+    padding-top: 3%;
+}
+.hinfo {
+    font-size: 50px;
+}
+.hspan{
+    font-size: 30px;
+    text-align: center;
+    color: #a07f42;
+    font-style: oblique;
+}
+
 

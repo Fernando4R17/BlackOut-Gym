@@ -24,19 +24,6 @@ router.get('/crear', (req, res) => {
     res.render('crear')
 });
 
-router.post('/addWorker', async(req, res) => {
-    const body = req.body;
-
-    try {
-
-        await Admin.create(body);
-
-        res.redirect('/');
-    } catch (error) {
-        console.log(error);
-    }
-});
-
 router.post('/login', async(req, res) => {
     const {email, pswd} = req.body;
 

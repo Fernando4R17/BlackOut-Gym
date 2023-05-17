@@ -1,13 +1,26 @@
-<div class="entrenador txt" data-id="<%= numeroEntrenador %>" data-ocupacion="<%= ocupacionTrabajador %>">
-    <span><%= numeroEntrenador %></span>
-    <h3><%= ocupacionTrabajador %></h3>
-</div>
+<% 
+
+function randomComparison() {
+  return Math.random() - 0.5;
+}
+
+var numero = 0; 
+arrayEquipo.sort(randomComparison);
+%>
+<% arrayEquipo.forEach(trabajador => { %>
+    <% if (numero < 5 ) { %>
+        <div class="entrenador txt" data-id="<%= trabajador._id %>" data-ocupacion="<%= trabajador.ocupacion %>">
+            <span><%= numero = numero + 1 %></span>
+            <h3><%= trabajador.ocupacion %></h3>
+        </div>
+    <% } %>
+<% }) %>
 
 <script>
     var entrenadores = document.querySelectorAll('.entrenador');
+
     entrenadores.forEach(function(entrenador) {
         var id = entrenador.dataset.id;
-        var ocupacion = entrenador.dataset.ocupacion;
-        entrenador.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(/img/${ocupacion}${id}.jpg)`;
+        entrenador.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(/img/trabajadores/${id}/imgG.jpg)`;
     });
 </script>

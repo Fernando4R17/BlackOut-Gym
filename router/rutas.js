@@ -1,16 +1,41 @@
 const express = require("express");
 const router = express.Router();
 
-router.get('/', (req,res) => {
-    res.render("index");
+const Trabajador = require('../models/Trabajador');
+const Cliente = require('../models/Cliente');
+const Membresia = require('../models/membresia');
+
+router.get('/', async(req,res) => {
+    try {
+        const equipo = await Trabajador.find();
+        res.render("index", {equipo});
+    } catch (error) {
+        
+    }
 });
 
-router.get('/inicio-sesion', (req,res) => {
+router.get('/inicio-sesion', async(req,res) => {
     if (!req.session.userId) {
         res.render("login");
         return;
     }
-    res.render("index");
+    res.render("index", {equipo});
+    
+    
+});
+
+router.get('/user', async (req,res) => {
+    if (!req.session.userId) {
+        res.redirect('/inicio-sesion');
+        return;
+    }
+    try {
+        const user = await Cliente.findOne({ _id : req.session.userId});
+        res.render("user",{user});
+    } catch (error) {
+        console.log(error);
+    }
+    
 });
 
 router.get('/registro', (req,res) => {
@@ -21,8 +46,21 @@ router.get('/registro', (req,res) => {
     res.render("index");
 });
 
-router.get('/membresias', (req,res) => {
-    res.render("membership");
+router.get('/membresias', async(req,res) => {
+    const membresias = await Membresia.find();
+    res.render("membership", {membresias});
+});
+
+router.get('/nosotros', async(req,res) => {
+    try {
+
+        const equipo = await Trabajador.find();
+
+        res.render("nosotros", {equipo});
+    } catch (error) {
+        console.log();
+    }
+    
 });
 
 router.get('/sucursales', (req,res) => {
@@ -32,15 +70,6 @@ router.get('/sucursales', (req,res) => {
 router.get('/admin', (req,res) => {
     res.render("loginAdmin");
 });
-
-router.get('/dashboard', (req, res) => {
-    if (!req.session.adminId) {
-        res.redirect('/');
-        return;
-    }
-    res.render("dashboard");
-});
-
 
 
 

@@ -2,6 +2,7 @@ const express = require("express");
 const bodyparser = require('body-parser');
 const session = require('express-session');
 const app = express();
+const paypal = require('paypal-rest-sdk');
 
 
 // parse application/x-www-form-urlencoded
@@ -68,8 +69,7 @@ app.use(express.static(__dirname + "/public"));
 app.use('/', require('./router/rutas'));
 app.use('/sesion', require('./router/Clientes'));
 app.use('/admin', require('./router/Admin'));
-
-
+app.use('/dashboard', require('./router/dashboard'));
 
 // Ruta alterna a la que recorre si no encuentra url
 app.use((req,res, next) =>{
@@ -80,5 +80,11 @@ app.use((req,res, next) =>{
 });
 
 // -----------------------------------------------------
+// Configuracion de paypal
+paypal.configure({
+  mode: 'sandbox',
+  client_id: 'AajQjbozgw13zgRlXaVFirKgP2jyFY_zOYCKdUTHAiSoFx-ELzIGuhbzdLutAKZk2D6r56u8wRWRujeh',
+  client_secret: 'EPF6_yLSvNETiRlMby6-xt3HorfNUJ2yPhkpUFFl0f1JcLOOyWAeA5egCnlFskx8q9EH1RZcRV34HNe2'
+});
 
 

@@ -1,0 +1,86 @@
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 col-lg-8">
+        <form action="/dashboard/membresia" method="POST">
+            <div class="row g-3 mt-4">
+                <div class="col-12 mt-2">
+                    <label for="Nombre" class="form-label"><h4>Nombre</h4></label>
+                    <input type="text" class="form-control" name="nombre" required>
+                    <div class="invalid-feedback">
+                        Nombre es requerido.
+                    </div>
+                </div>
+
+
+                <div class="col-sm-6">
+                    <label for="Precio" class="form-label"><h4>Precio</h4></label>
+                    <input type="number" class="form-control" name="precio" required>
+                    <div class="invalid-feedback">
+                        Precio es requerido.
+                    </div>
+                </div>
+                
+                <div class="col-sm-6">
+                    <label for="Duracion" class="form-label"><h4>Duracion</h4></label>
+                    <select class="form-control" name="duracion">
+                        <option value="1">1 Mes</option>
+                        <option value="3">3 Meses</option>
+                        <option value="6">6 Meses</option>
+                        <option value="12">1 Año</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-6 mt-2">
+                    <label for="Inscripcion" class="form-label"><h4>Inscripcion</h4></label><br>
+                    <select class="form-control" name="inscripcion">
+                        <option value="True">Si</option>
+                        <option value="False">No</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-6 mt-2">
+                    <label for="Mantenimiento" class="form-label"><h4>Mantenimiento</h4></label><br>
+                    <select class="form-control" name="mantenimiento">
+                        <option value="True">Si</option>
+                        <option value="False">No</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-6 mt-2">
+                    <label for="Todoeldia" class="form-label"><h4>24 Hrs</h4></label><br>
+                    <select class="form-control" name="todoeldia">
+                        <option value="True">Si</option>
+                        <option value="False">No</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-6 mt-2">
+                    <label for="Clases" class="form-label"><h4>Clases ilimitadas</h4></label><br>
+                    <select class="form-control" name="clases">
+                        <option value="True">Si</option>
+                        <option value="False">No</option>
+                    </select>
+                </div>
+                
+                <div class="col-sm-6 mt-2">
+                    <label for="Invitados" class="form-label"><h4>Invitados</h4></label><br>
+                    <select class="form-control" name="invitados">
+                        <option value="True">Si</option>
+                        <option value="False">No</option>
+                    </select>
+                </div>
+ 
+            </div>
+            <br>
+            <div class=" mb-5">
+                <center>
+                    <button class="btn btn-outline-secondary btn-lg m-2" type="submit"> 
+                    Aceptar</button>
+                </center>
+                <button class="btn btn-outline-secondary btn-lg m-2" id="membresiaRegresar"> 
+                    <i class="fa-solid fa-arrow-left"></i></button>
+            </div>
+        </form>
+    </div> 
+</div>

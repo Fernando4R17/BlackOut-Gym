@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="card mt-4" style="min-height: 45rem;">
+        <div class="card-body">
+            <form id="vistaCliente" data-id="<%= user.id %>">
+                <div class="row g-3 mt-4">
+                    <div class="col-12 mt-2">
+                        <label for="Nombre" class="form-label"><h4>Nombre</h4></label>
+                        <input type="text" class="form-control" name="nombre" id="nombreInput" value="<%= user.nombre %>" readonly>
+                        <div class="invalid-feedback">
+                            Nombre es requerido.
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 mt-2">
+                        <label for="ApellidoP" class="form-label"><h4>Apellido Paterno</h4></label>
+                        <input type="text" class="form-control" name="app" id="appInput" value="<%= user.app %>" readonly>
+                        <div class="invalid-feedback">
+                            Apellido Paterno es requerido.
+                        </div>
+                    </div>
+    
+                    <div class="col-sm-6 mt-2">
+                        <label for="APM" class="form-label"><h4>Apellido Materno</h4></label>
+                        <input type="text" class="form-control" name="apm" id="apmInput" value="<%= user.apm %>" readonly>
+                        <label class="mt-2"><span class="text-muted">(Opcional)</span></label>
+                    </div>
+    
+                    <div class="col-sm-6">
+                        <label for="Sexo" class="form-label"><h4>Sexo</h4></label>
+                        <input type="text" class="form-control" name="sexo" id="sexoInput" value="<%= user.sexo %>" readonly>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="Membresia" class="form-label"><h4>Membresia</h4></label>
+                        <input type="text" class="form-control" name="sexo" id="sexoInput" value="<%= user.membresia %>" readonly>
+                    </div>
+    
+                    <div class="col-12 mt-2">
+                        <label for="Email" class="form-label"><h4>Email</h4></label>
+                        <input type="email" class="form-control" name="email" id="emailInput" value="<%= user.email %>" readonly>
+                    </div>
+     
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

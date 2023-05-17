@@ -56,7 +56,7 @@
                 
                                         <div class="col-12 mt-2">
                                             <label for="Password" class="form-label"><h4>Contraseña</h4></label>
-                                            <input type="password" class="form-control mb-1" name="pswd" placeholder="Contraseña" required>
+                                            <input type="password" class="form-control mb-1" name="pswd" id="pswd" placeholder="Contraseña" required>
                                             <span id="mensaje"></span>
                                             <div class="invalid-feedback">
                                             Ingrese una contraseña.
@@ -67,7 +67,7 @@
                                     <div class=" mb-5">
                                         <center>
                                             <span id="boton">&nbsp;</span><br>
-                                            <button class="btn btn-outline-secondary btn-lg m-2" type="submit"> 
+                                            <button class="btn btn-outline-secondary btn-lg m-2" id="registroBtn" type="submit" disabled> 
                                             Aceptar</button>
                                         </center>
                                     </div>
@@ -81,3 +81,25 @@
         </div>
     </div>
 </section>
+
+<script type="text/javascript">
+    const passwordInput = document.querySelector('#pswd');
+    const passwordBtn = document.querySelector('#registroBtn');
+    const passwordTxt = document.querySelector('#mensaje');
+
+    passwordInput.addEventListener("keyup", function() {
+        const password = passwordInput.value;
+        if (validarPassword(password)) {
+            passwordBtn.disabled = false;
+            passwordTxt.textContent = "";
+        } else {
+            passwordBtn.disabled = true;
+            passwordTxt.textContent = "La contraseña debe tener al menos 8 caracteres, incluyendo una letra mayúscula, una minúscula, un número y un caracter especial.";
+        }
+    });
+
+    function validarPassword(password) {
+        const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%])[0-9a-zA-Z!@#$%]{8,}$/;
+        return regex.test(password);
+    }
+</script>

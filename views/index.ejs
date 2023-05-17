@@ -1,6 +1,8 @@
 <%- include("template/head", {tituloweb: 'inicio'}); %>
 
-<%- include("template/header"); %>
+
+<%- include("template/header", {letras: '',equipo: '', titulo: 'Blackout Gym', lema: 'Fitness for Anyone Anytime and Anywhere', informacion: 'Entrenar debe ser un estilo de vida, no un castigo', apartado: 'inicio'}); %>
+
 
 <%- include("template/activities"); %>
 
@@ -9,11 +11,8 @@
 <%- include("template/courses"); %>
 
 <section class="entrenadores">
-    <%- include("template/trainers", {numeroEntrenador: '1', ocupacionTrabajador: 'Entrenador'}); %>
-    <%- include("template/trainers", {numeroEntrenador: '2', ocupacionTrabajador: 'Entrenador'}); %>
-    <%- include("template/trainers", {numeroEntrenador: '3', ocupacionTrabajador: 'Entrenadora'}); %>
-    <%- include("template/trainers", {numeroEntrenador: '4', ocupacionTrabajador: 'Fisioterapeuta'}); %>
-    <%- include("template/trainers", {numeroEntrenador: '5', ocupacionTrabajador: 'Nutriologo'}); %>
+    <%- include("template/trainers", { arrayEquipo: equipo }); %>
 </section>
 
-<%- include("template/footer"); %>
+<%- include("template/footer"); %> 
+ 

@@ -1,0 +1,348 @@
+<div class="container">
+    <div class="card mt-4" style="min-height: 45rem;">
+        <div class="card-body">
+
+            <% if (error) { %>
+                <p><%= mensaje %></p>
+                <a href="/dashboard" class="btn btn-dark btn-block">Volver a dashboard</a>
+            <% } %>
+        
+            <% if (!error) { %>
+        
+                <% if (typeof trabajador !== 'undefined') { %>
+                    <form id="formularioEditar" data-id="<%= trabajador.id %>">
+                        <div class="row g-3 mt-4">
+                            <div class="col-12 mt-2">
+                                <label for="Nombre" class="form-label"><h4>Nombre</h4></label>
+                                <input type="text" class="form-control" name="nombre" id="nombreInput" value="<%= trabajador.nombre %>" required>
+                                <div class="invalid-feedback">
+                                    Nombre es requerido.
+                                </div>
+                            </div>
+        
+                            <div class="col-sm-6 mt-2">
+                                <label for="ApellidoP" class="form-label"><h4>Apellido Paterno</h4></label>
+                                <input type="text" class="form-control" name="app" id="appInput" value="<%= trabajador.app %>" required>
+                                <div class="invalid-feedback">
+                                    Apellido Paterno es requerido.
+                                </div>
+                            </div>
+            
+                            <div class="col-sm-6 mt-2">
+                                <label for="APM" class="form-label"><h4>Apellido Materno</h4></label>
+                                <input type="text" class="form-control" name="apm" id="apmInput" value="<%= trabajador.apm %>">
+                                <label class="mt-2"><span class="text-muted">(Opcional)</span></label>
+                            </div>
+            
+                            <div class="col-sm-6">
+                                <label for="Sucursal" class="form-label"><h4>Sucursal</h4></label>
+                                <input type="text" class="form-control" name="sucursal" id="sucursalInput" value="<%= trabajador.sucursal %>" required>
+                            </div>
+            
+                            <div class="col-sm-6">
+                                <label for="Carrera" class="form-label"><h4>Carrera</h4></label>
+                                <input type="text" class="form-control" name="carrera" id="carreraInput" value="<%= trabajador.carrera %>" required>
+                            </div>
+            
+                            <div class="col-12 mt-2">
+                                <label for="Email" class="form-label"><h4>Email</h4></label>
+                                <input type="email" class="form-control" name="email" id="emailInput" value="<%= trabajador.email %>" required>
+                            </div>
+            
+                            <div class="col-12 mt-2">
+                                <label for="Ocupacion" class="form-label"><h4>Ocupacion</h4></label>
+                                <input type="text" class="form-control mb-1" name="ocupacion" id="ocupacionInput" value="<%= trabajador.ocupacion %>" required>
+                            </div>   
+                        </div>
+                        <br>
+                        <div class=" mb-5">
+                            <center>
+                                <button class="btn btn-outline-secondary btn-lg mt-2" onclick="editarTrabajadores()"> 
+                                Editar</button>
+                            </center>
+                        </div>
+                    </form>
+                    <a href="/dashboard" class="btn btn-outline-secondary btn-lg">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                    <hr>
+                    <div class="d-grid my-4">
+                        <button class="btn btn-outline-secondary" id="btnEliminarTrabajador" onclick="eliminarTrabajador()"  data-id="<%= trabajador.id %>">Eliminar</button>
+                    </div>
+
+                <% } else if(typeof cliente !== 'undefined'){%>
+                    <form id="vistaCliente" data-id="<%= cliente.id %>">
+                        <div class="row g-3 mt-4">
+                            <div class="col-12 mt-2">
+                                <label for="Nombre" class="form-label"><h4>Nombre</h4></label>
+                                <input type="text" class="form-control" name="nombre" id="nombreInput" value="<%= cliente.nombre %>" readonly>
+                                <div class="invalid-feedback">
+                                    Nombre es requerido.
+                                </div>
+                            </div>
+        
+                            <div class="col-sm-6 mt-2">
+                                <label for="ApellidoP" class="form-label"><h4>Apellido Paterno</h4></label>
+                                <input type="text" class="form-control" name="app" id="appInput" value="<%= cliente.app %>" readonly>
+                                <div class="invalid-feedback">
+                                    Apellido Paterno es requerido.
+                                </div>
+                            </div>
+            
+                            <div class="col-sm-6 mt-2">
+                                <label for="APM" class="form-label"><h4>Apellido Materno</h4></label>
+                                <input type="text" class="form-control" name="apm" id="apmInput" value="<%= cliente.apm %>" readonly>
+                                <label class="mt-2"><span class="text-muted">(Opcional)</span></label>
+                            </div>
+            
+                            <div class="col-sm-6">
+                                <label for="Sexo" class="form-label"><h4>Sexo</h4></label>
+                                <input type="text" class="form-control" name="sexo" id="sexoInput" value="<%= cliente.sexo %>" readonly>
+                            </div>
+            
+                            <div class="col-12 mt-2">
+                                <label for="Email" class="form-label"><h4>Email</h4></label>
+                                <input type="email" class="form-control" name="email" id="emailInput" value="<%= cliente.email %>" readonly>
+                            </div>
+             
+                        </div>
+                    </form>
+                    <a href="/dashboard" class="btn btn-outline-secondary btn-lg mt-4">
+                        <i class="fa-solid fa-arrow-left"></i></a>
+                    <hr>
+                    <div class="d-grid my-4">
+                        <button class="btn btn-outline-secondary" id="btnEliminarCliente" onclick="eliminarCliente()" data-id="<%= cliente.id %>">Eliminar</button>
+                    </div>
+                <% } else if(typeof membresia !== 'undefined'){  %>
+                    <form id="formularioMembresia" data-id="<%= membresia.id %>">
+                        <div class="row g-3 mt-4">
+                            <div class="col-12 mt-2">
+                                <label for="Nombre" class="form-label"><h4>Nombre</h4></label>
+                                <input type="text" class="form-control" name="nombre" id="nombreInput" value="<%= membresia.nombre %>" required>
+                                <div class="invalid-feedback">
+                                    Nombre es requerido.
+                                </div>
+                            </div>
+            
+            
+                            <div class="col-sm-6">
+                                <label for="Precio" class="form-label"><h4>Precio</h4></label>
+                                <input type="number" class="form-control" name="precio" id="precioInput" value="<%= membresia.precio %>" required>
+                                <div class="invalid-feedback">
+                                    Precio es requerido.
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <label for="Duracion" class="form-label"><h4>Duracion</h4></label>
+                                <select class="form-control" name="duracion" id="duracionInput" value="<%= membresia.duracion %>">
+                                    <option value="1">1 Mes</option>
+                                    <option value="3">3 Meses</option>
+                                    <option value="6">6 Meses</option>
+                                    <option value="12">1 Año</option>
+                                </select>
+                            </div>
+            
+                            <div class="col-sm-6 mt-2">
+                                <label for="Inscripcion" class="form-label"><h4>Inscripcion</h4></label><br>
+                                <select class="form-control" name="inscripcion" id="inscripcionInput" value="<%= membresia.inscripcion %>">
+                                    <option value="True">Si</option>
+                                    <option value="False">No</option>
+                                </select>
+                            </div>
+            
+                            <div class="col-sm-6 mt-2">
+                                <label for="Mantenimiento" class="form-label"><h4>Mantenimiento</h4></label><br>
+                                <select class="form-control" name="mantenimiento" id="mantenimientoInput" value="<%= membresia.mantenimiento %>">
+                                    <option value="True">Si</option>
+                                    <option value="False">No</option>
+                                </select>
+                            </div>
+            
+                            <div class="col-sm-6 mt-2">
+                                <label for="Todoeldia" class="form-label"><h4>24 Hrs</h4></label><br>
+                                <select class="form-control" name="todoeldia" id="todoeldiaInput" value="<%= membresia.todoeldia %>">
+                                    <option value="True">Si</option>
+                                    <option value="False">No</option>
+                                </select>
+                            </div>
+            
+                            <div class="col-sm-6 mt-2">
+                                <label for="Clases" class="form-label"><h4>Clases ilimitadas</h4></label><br>
+                                <select class="form-control" name="clases" id="clasesInput" value="<%= membresia.clases %>">
+                                    <option value="True">Si</option>
+                                    <option value="False">No</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-sm-6 mt-2">
+                                <label for="Invitados" class="form-label"><h4>Invitados</h4></label><br>
+                                <select class="form-control" name="invitados" id="invitadosInput" value="<%= membresia.invitados %>">
+                                    <option value="True">Si</option>
+                                    <option value="False">No</option>
+                                </select>
+                            </div>
+             
+                        </div>
+                        <br>
+                        <div class=" mb-5">
+                            <center>
+                                <button class="btn btn-outline-secondary btn-lg m-2" onclick="membresiaEditar()"> 
+                                Aceptar</button>
+                            </center>
+                            <a href="/dashboard" class="btn btn-outline-secondary btn-lg">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </a>
+                            <hr>
+                            <div class="d-grid my-4">
+                                <button class="btn btn-outline-secondary" id="btnEliminarMembresia" onclick="eliminarMembresia()" data-id="<%= membresia.id %>">Eliminar</button>
+                            </div>
+                        </div>
+                    </form>
+                <% } %>
+                
+            <% } %>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+    const btnEliminarTrabajador = document.querySelector('#btnEliminarTrabajador');
+    const btnEliminarCliente = document.querySelector('#btnEliminarCliente');
+    const formularioEditar = document.querySelector('#formularioEditar');
+    const formularioMembresia = document.querySelector('#formularioMembresia');
+    const btnEliminarMembresia = document.querySelector('#btnEliminarMembresia');
+
+
+    async function eliminarTrabajador(){
+        const id = btnEliminarTrabajador.dataset.id;
+        try {
+            const data = await fetch(`/dashboard/trabajador/${id}`, {
+                method: 'delete'
+            });
+
+            const res = await data.json();
+
+            if(res.estado){
+                window.location.href = '/dashboard'
+            }else {
+                console.log(res);
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function eliminarCliente() {
+        const id = btnEliminarCliente.dataset.id;
+        try {
+            const data = await fetch(`/dashboard/cliente/${id}`, {
+                method: 'delete'
+            });
+
+            const res = await data.json();
+
+            if(res.estado){
+                window.location.href = '/dashboard'
+            }else {
+                console.log(res);
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function eliminarMembresia(){
+        const id = btnEliminarMembresia.dataset.id;
+        try {
+            const data = await fetch(`/dashboard/membresia/${id}`, {
+                method: 'delete'
+            });
+
+            const res = await data.json();
+
+            if(res.estado){
+                window.location.href = '/dashboard'
+            }else {
+                console.log(res);
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function membresiaEditar(){
+        const nombre = document.querySelector('#nombreInput').value
+        const precio = document.querySelector('#precioInput').value
+        const duracion = document.querySelector('#duracionInput').value
+        const inscripcion = document.querySelector('#inscripcionInput').value
+        const mantenimiento = document.querySelector('#mantenimientoInput').value
+        const todoeldia = document.querySelector('#todoeldiaInput').value
+        const clases = document.querySelector('#clasesInput').value
+        const invitados = document.querySelector('#invitadosInput').value
+        
+        const id = formularioMembresia.dataset.id
+
+        try {
+            const data = await fetch(`/dashboard/membresia/${id}`, {
+                method: 'put',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({nombre, precio, duracion, inscripcion, mantenimiento, todoeldia, clases, invitados})
+            })
+
+            const res = await data.json();
+
+            if (res.estado) {
+                window.location.href = '/dashboard'
+            } else{
+                console.log(res);
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function editarTrabajadores(){
+        const nombre = document.querySelector('#nombreInput').value
+        const email = document.querySelector('#emailInput').value
+        const apm = document.querySelector('#apmInput').value
+        const app = document.querySelector('#appInput').value
+        const sucursal = document.querySelector('#sucursalInput').value
+        const carrera = document.querySelector('#carreraInput').value
+        const ocupacion = document.querySelector('#ocupacionInput').value
+        
+        const id = formularioEditar.dataset.id
+
+        try {
+            const data = await fetch(`/dashboard/trabajador/${id}`, {
+                method: 'put',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({nombre, email, apm, app, sucursal, carrera, ocupacion})
+            })
+
+            const res = await data.json();
+
+            if (res.estado) {
+                window.location.href = '/dashboard'
+            } else{
+                console.log(res);
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    
+
+    
+</script>
