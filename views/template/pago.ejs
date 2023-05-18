@@ -1,1 +1,56 @@
-<h1>Se paga chaval</h1>
+
+<div class="container">
+    <div class="card mt-4" style="min-height: 45rem;">
+        <div class="card-body">
+            <div class="row g-5">
+                <div class="col-md-5 col-lg-4 order-md-last">
+                  <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                      <div>
+                        <h3 class="my-0">Suscripción <%= membresia.nombre %></h3>
+                        <small class="text-muted">Blackout Gym</small>
+                      </div>
+                      <span class="text-muted">$ <%= membresia.precio %></span>
+                    </li>
+          
+                    
+                    <li class="list-group-item d-flex justify-content-between">
+                      <span class="text-muted">Total (MXN)</span>
+                      <h4><strong>$<%= membresia.precio %></strong></h4>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-7 col-lg-8">
+                  <form action="/pago/suscripcion" method="POST">
+                    <div class="row g-3">
+                      <div class="col-sm-6">
+                        <label for="firstName" class="form-label">Nombre(s)</label>
+                        <input type="text" class="form-control" id="nombre" placeholder="<%= user.nombre %>" readonly>
+                      </div>
+          
+                      <div class="col-sm-6">
+                        <label for="lastName" class="form-label">Apellido Paterno</label>
+                        <input type="text" class="form-control" id="app" placeholder="<%= user.app %>" readonly>
+                      </div>
+          
+                      <div class="col-12">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="<%= user.email %>" readonly>
+                      </div>
+
+                      <div class="col-12">
+                        <label for="email" class="form-label">Telefono</label>
+                        <input type="email" class="form-control" id="telefono" placeholder="<%= user.telefono %>" readonly>
+                      </div>
+                      <input type="text" name="membresiaDuracion" value="<%= membresia.duracion %>" hidden>
+                      <input type="text" name="membresiaNombre" value="<%= membresia.nombre %>" hidden>
+                    <hr class="my-4">
+                    <button class="w-100 btn btn-outline-secondary btn-lg" type="submit">Realizar pago</button>
+                  </form>
+                </div>
+              </div>
+            
+        </div>
+    </div>
+
+</div>

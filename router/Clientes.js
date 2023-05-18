@@ -17,7 +17,6 @@ router.get('/', async (req,res) => {
         console.log(error);
     }
 
-    
 });
 
 router.get('/crear', (req, res) => {
@@ -55,7 +54,7 @@ router.post('/login', async(req, res) => {
             } else if (result) {
               console.log('Contraseña correcta');
               req.session.userId = user._id;
-              res.redirect('/user');
+              res.redirect('/');;
             } else {
               console.log('Contraseña incorrecta');
             }
