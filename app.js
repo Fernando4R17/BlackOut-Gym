@@ -23,7 +23,7 @@ app.listen(port, () => {
 // Middleware para sesiones
 
 app.use(session({
-  secret: 'asdjaksd1oijo12',
+  secret: '',
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false } // establece en true si usas HTTPS
@@ -46,8 +46,8 @@ app.use((req, res, next) => {
 
 const mongoose = require('mongoose');
 
-const dbname = 'Gimnasio';
-const uri = `mongodb://127.0.0.1:27017/${dbname}`;
+const dbname = '';
+const uri = ``;
 
 mongoose.connect(uri,{
     useNewUrlParser: true,
@@ -83,8 +83,8 @@ app.use((req,res, next) =>{
 // Configuracion de paypal
 paypal.configure({
   mode: 'sandbox',
-  client_id: 'AajQjbozgw13zgRlXaVFirKgP2jyFY_zOYCKdUTHAiSoFx-ELzIGuhbzdLutAKZk2D6r56u8wRWRujeh',
-  client_secret: 'EPF6_yLSvNETiRlMby6-xt3HorfNUJ2yPhkpUFFl0f1JcLOOyWAeA5egCnlFskx8q9EH1RZcRV34HNe2'
+  client_id: '',
+  client_secret: ''
 });
 
 
